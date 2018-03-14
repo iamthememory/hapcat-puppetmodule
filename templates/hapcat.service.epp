@@ -1,0 +1,15 @@
+[Unit]
+Description=Hapcat backend
+After=basic.target network.target
+
+[Service]
+Type=simple
+User=<%= $service_user %>
+Group=<%= $service_group %>
+WorkingDirectory=<%= $service_workingdirectory %>
+ExecStart=<%= $service_command %>
+StandardOutput=syslog
+StandardError=syslog
+
+[Install]
+WantedBy=multi-user.target
