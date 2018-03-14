@@ -26,7 +26,7 @@ class hapcat::service {
       group   => 'root',
       mode    => '0444',
       notify  => Class['systemd::systemctl::daemon_reload'],
-      content => epp('hapcat.service.epp', {
+      content => epp('hapcat/hapcat.service.epp', {
         'service_user'             => $hapcat::service_user,
         'service_group'            => $hapcat::service_group,
         'service_workingdirectory' => $hapcat::service_workingdirectory,
