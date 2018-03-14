@@ -13,7 +13,7 @@ class hapcat(
   $package_virtualenv = 'system',
 
   $service_command = 'pip -m hapcat.apiserver',
-  Enum[true, false, 'manual', 'mask'] $service_enable = true,
+  Boolean $service_enable = true,
   Stdlib::Ensure::Service $service_ensure = 'running',
   Stdlib::Absolutepath $service_file = '/etc/systemd/system/hapcat.service',
   $service_group = 'root',
