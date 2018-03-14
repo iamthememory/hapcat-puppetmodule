@@ -20,25 +20,25 @@ class hapcat::service {
       fail('service_ensure parameter must be running or stopped')
     }
 
-    file { $hapcat::service_file:
+    file { $hapcat::service_file :
       ensure  => file,
       owner   => 'root',
       group   => 'root',
       mode    => '0444',
+      notify  => Class['systemd::systemctl::daemon_reload'],
       content => epp('hapcat.service.epp', {
         'service_user'             => $hapcat::service_user,
         'service_group'            => $hapcat::service_group,
         'service_workingdirectory' => $hapcat::service_workingdirectory,
         'service_command'          => $hapcat::service_command,
-      },
-      notify  => Class['systemd::systemctl::daemon_reload'],
+      }),
     }
 
     service { 'hapcat':
-      ensure     => $hapcat::service_ensure,
-      enable     => $hapcat::service_enable,
-      name       => $hapcat::service_name,
-      subscribe  => File[$hapcat::service_file],
+      ensure    => $hapcat::service_ensure,
+      enable    => $hapcat::service_enable,
+      name      => $hapcat::service_name,
+      subscribe => File[$hapcat::service_file],
     }
 
   }
