@@ -22,4 +22,13 @@ class hapcat(
   $service_user = 'root',
   Stdlib::Absolutepath $service_workingdirectory = '/var/lib/hapcat',
 ) {
+
+  contain hapcat::install
+  contain hapcat::config
+  contain hapcat::service
+
+  Class['::hapcat::install']
+  -> Class['::hapcat::config']
+  ~> Class['::hapcat::service']
+
 }
