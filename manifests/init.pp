@@ -12,7 +12,7 @@ class hapcat(
   $package_pip_url = 'git+https://github.com/iamthememory/hapcat-backend.git',
   $package_virtualenv = 'system',
 
-  $service_command = '/usr/bin/env python -m hapcat.apiserver',
+  $service_command = '/usr/local/bin/hapcatd'
   Boolean $service_enable = true,
   Stdlib::Ensure::Service $service_ensure = 'running',
   Stdlib::Absolutepath $service_file = '/etc/systemd/system/hapcat.service',
