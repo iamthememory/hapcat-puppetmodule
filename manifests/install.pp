@@ -18,10 +18,11 @@ class hapcat::install {
     }
 
     python::pip { 'hapcat' :
-      ensure     => $hapcat::package_ensure,
-      pkgname    => 'hapcat',
-      url        => $hapcat::package_pip_url,
-      virtualenv => $hapcat::package_virtualenv,
+      ensure       => $hapcat::package_ensure,
+      pkgname      => 'hapcat',
+      install_args => $hapcat::package_pip_install_args
+      url          => $hapcat::package_pip_url,
+      virtualenv   => $hapcat::package_virtualenv,
     }
   }
 
