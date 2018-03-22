@@ -32,4 +32,6 @@ class hapcat(
   -> Class['::hapcat::config']
   ~> Class['::hapcat::service']
 
+  Class['::hapcat::install']
+  ~> Class['::hapcat::service']
 }
