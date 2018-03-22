@@ -7,7 +7,7 @@
 # @example
 #   include hapcat
 class hapcat(
-  Enum['present', 'absent', 'purged', 'held', 'latest'] $package_ensure = 'latest',
+  $package_ensure = 'latest',
   Boolean $package_manage = true,
   $package_pip_url = 'git+https://github.com/iamthememory/hapcat-backend.git',
   $package_virtualenv = 'system',

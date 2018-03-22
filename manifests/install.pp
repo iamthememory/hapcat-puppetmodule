@@ -10,7 +10,7 @@ class hapcat::install {
 
   if $hapcat::package_manage {
 
-    if $hapcat::package_ensure in [ 'present', 'latest' ] {
+    if $hapcat::package_ensure != 'absent' {
       class { 'python' :
         pip    => 'present',
         ensure => 'present',
