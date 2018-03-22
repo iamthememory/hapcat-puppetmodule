@@ -11,7 +11,7 @@ class hapcat(
   Boolean $package_manage = true,
   $package_pip_url = 'git+https://github.com/iamthememory/hapcat-backend.git',
   $package_virtualenv = 'system',
-  $package_pip_install_args = nil,
+  $package_pip_install_args = '',
 
   $service_command = '/usr/local/bin/hapcatd',
   Boolean $service_enable = true,
