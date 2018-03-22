@@ -13,7 +13,7 @@ class hapcat(
   $package_virtualenv = 'system',
   $package_pip_install_args = nil,
 
-  $service_command = '/usr/local/bin/hapcatd'
+  $service_command = '/usr/local/bin/hapcatd',
   Boolean $service_enable = true,
   Stdlib::Ensure::Service $service_ensure = 'running',
   Stdlib::Absolutepath $service_file = '/etc/systemd/system/hapcat.service',
