@@ -1,5 +1,6 @@
 <%- | 
     String $service_user,
+    String $service_command,
     String $service_group,
     String $service_workingdirectory,
     String $service_configfile,
