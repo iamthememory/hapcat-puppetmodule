@@ -17,10 +17,10 @@ class hapcat(
   Boolean $service_enable = true,
   Stdlib::Ensure::Service $service_ensure = 'running',
   Stdlib::Absolutepath $service_file = '/etc/systemd/system/hapcat.service',
-  $service_group = 'root',
+  $service_group = 'hapcat',
   Boolean $service_manage = true,
   $service_name = 'hapcat',
-  $service_user = 'root',
+  $service_user = 'hapcat',
   Stdlib::Absolutepath $service_workingdirectory = '/var/lib/hapcat',
 ) {
 
