@@ -23,6 +23,15 @@ class hapcat::install {
         virtualenv   => $hapcat::package_virtualenv,
       }
 
+      case $::operatingsystem {
+        'debian', 'ubuntu' : {
+          $nologin = '/usr/sbin/nologin'
+        }
+        default: {
+          $nologin = '/sbin/nologin'
+        }
+      }
+
       group { $hapcat::service_group :
         ensure => 'present',
         system => true,
@@ -32,7 +41,7 @@ class hapcat::install {
         comment  => 'Hapcat service user',
         gid      => $hapcat::service_group,
         home     => $hapcat::service_workingdirectory,
-        shell    => '/sbin/nologin',
+        shell    => $nologin,
         system   => true,
         password => '!',
       }
