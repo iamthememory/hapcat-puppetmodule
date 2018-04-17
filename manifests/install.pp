@@ -18,7 +18,7 @@ class hapcat::install {
 
       python::pip { 'psycopg2' :
         ensure       => 'present',
-        pkgname      => 'psycopg2',
+        pkgname      => 'psycopg2-binary',
         install_args => $hapcat::package_pip_install_args,
         virtualenv   => $hapcat::package_virtualenv,
       }
