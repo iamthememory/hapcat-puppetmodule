@@ -60,6 +60,6 @@ port = <%= $api_port %>
 dburl = <%= $database_url %>
 
 # If true, initialize the database with basic test data on the first run.
-loadtestdata = <%= bool2str($database_loadtestdata) =>
+loadtestdata = <%= bool2str($database_loadtestdata) >
 
 # vim: ft=dosini ts=2 sw=2 sts=2 expandtab
