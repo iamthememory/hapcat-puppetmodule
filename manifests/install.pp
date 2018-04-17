@@ -26,8 +26,7 @@ class hapcat::install {
       group { $hapcat::service_group :
         ensure => 'present',
         system => true,
-      }
-      ->
+      } ->
       user { $hapcat::service_user :
         ensure   => 'present',
         comment  => 'Hapcat service user',
