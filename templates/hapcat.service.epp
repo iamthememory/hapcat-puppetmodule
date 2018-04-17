@@ -1,3 +1,8 @@
+<%- | 
+    String $service_user,
+    String $service_group,
+    String $service_workingdirectory,
+| -%>
 [Unit]
 Description=Hapcat backend
 After=basic.target network.target
