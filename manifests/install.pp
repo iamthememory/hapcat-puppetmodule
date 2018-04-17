@@ -22,6 +22,21 @@ class hapcat::install {
         install_args => $hapcat::package_pip_install_args,
         virtualenv   => $hapcat::package_virtualenv,
       }
+
+      group { $hapcat::service_group :
+        ensure => 'present',
+        system => true,
+      }
+      ->
+      user { $hapcat::service_user :
+        ensure   => 'present',
+        comment  => 'Hapcat service user',
+        gid      => $hapcat::service_group,
+        home     => $hapcat::service_workingdirectory,
+        shell    => '/sbin/nologin',
+        system   => true,
+        password => '!',
+      }
     }
 
     python::pip { 'hapcat' :

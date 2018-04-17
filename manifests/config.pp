@@ -8,7 +8,7 @@
 #   include hapcat::config
 class hapcat::config {
 
-  file { $hapcat::service_workingdirectory:
+  file { $hapcat::service_workingdirectory :
     ensure => directory,
     owner  => $hapcat::service_user,
     group  => $hapcat::service_group,
