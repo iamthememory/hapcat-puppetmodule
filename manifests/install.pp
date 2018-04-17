@@ -1,6 +1,6 @@
 # hapcat::install
 #
-# A description of what this class does
+# Install the Hapcat scripts and modules.
 #
 # @summary A short summary of the purpose of this class
 #
@@ -15,6 +15,13 @@ class hapcat::install {
         pip    => 'present',
         ensure => 'present',
       }
+
+      python::pip { 'psycopg2' :
+        ensure       => 'present',
+        pkgname      => 'psycopg2',
+        install_args => $hapcat::package_pip_install_args,
+        virtualenv   => $hapcat::package_virtualenv,
+      }
     }
 
     python::pip { 'hapcat' :
@@ -25,5 +32,4 @@ class hapcat::install {
       virtualenv   => $hapcat::package_virtualenv,
     }
   }
-
 }
