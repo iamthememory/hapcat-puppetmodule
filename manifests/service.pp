@@ -31,6 +31,7 @@ class hapcat::service {
         'service_group'            => $hapcat::service_group,
         'service_workingdirectory' => $hapcat::service_workingdirectory,
         'service_command'          => $hapcat::service_command,
+        'service_configfile'       => $hapcat::package_config_file,
       }),
     }
 

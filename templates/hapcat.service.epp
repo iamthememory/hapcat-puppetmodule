@@ -2,6 +2,7 @@
     String $service_user,
     String $service_group,
     String $service_workingdirectory,
+    String $service_configfile,
 | -%>
 [Unit]
 Description=Hapcat backend
@@ -12,7 +13,7 @@ Type=simple
 User=<%= $service_user %>
 Group=<%= $service_group %>
 WorkingDirectory=<%= $service_workingdirectory %>
-ExecStart=<%= $service_command %>
+ExecStart=<%= $service_command %> -c '<%= $service_configfile %>'
 StandardOutput=syslog
 StandardError=syslog
 
