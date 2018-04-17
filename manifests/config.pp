@@ -24,7 +24,7 @@ class hapcat::config {
       'api_address'           => $hapcat::api_address,
       'api_port'              => $hapcat::api_port,
       'database_url'          => $hapcat::database_url,
-      'database_loadtestdata' => $hacpat::database_loadtestdata,
+      'database_loadtestdata' => $hapcat::database_loadtestdata,
     }),
   }
 
