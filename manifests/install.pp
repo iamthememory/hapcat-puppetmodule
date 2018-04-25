@@ -24,7 +24,7 @@ class hapcat::install {
       }
 
       python::pip { 'uwsgi' :
-        ensure => 'present',
+        ensure       => 'present',
         install_args => $hapcat::package_pip_install_args,
         virtualenv   => $hapcat::package_virtualenv,
       }
@@ -41,8 +41,8 @@ class hapcat::install {
       group { $hapcat::service_group :
         ensure => 'present',
         system => true,
-      } ->
-      user { $hapcat::service_user :
+      }
+      -> user { $hapcat::service_user :
         ensure   => 'present',
         comment  => 'Hapcat service user',
         gid      => $hapcat::service_group,
