@@ -30,7 +30,7 @@ class hapcat::service {
         'service_user'             => $hapcat::service_user,
         'service_group'            => $hapcat::service_group,
         'service_workingdirectory' => $hapcat::service_workingdirectory,
-        'service_command'          => $hapcat::uwsgi_command,
+        'uwsgi_command'            => $hapcat::uwsgi_command,
         'service_configfile'       => $hapcat::package_config_file,
       }),
     }

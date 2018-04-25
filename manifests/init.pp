@@ -14,7 +14,7 @@ class hapcat(
   $package_pip_install_args = '',
   Stdlib::Absolutepath $package_config_file = '/etc/hapcatd.conf',
 
-  $service_command = '/usr/local/bin/uwsgi',
+  $uwsgi_command = '/usr/local/bin/uwsgi',
   Boolean $service_enable = true,
   Stdlib::Ensure::Service $service_ensure = 'running',
   Stdlib::Absolutepath $service_file = '/etc/systemd/system/hapcat.service',
