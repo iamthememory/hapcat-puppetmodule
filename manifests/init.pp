@@ -19,7 +19,7 @@ class hapcat(
   Stdlib::Ensure::Service $service_ensure = 'running',
   Stdlib::Absolutepath $service_file = '/etc/systemd/system/hapcat.service',
   Stdlib::Absolutepath $socket_service_file = '/etc/systemd/system/hapcat.socket',
-  Stdlib::Absolutepath $service_socket = '/run/hapcat.socket'
+  Stdlib::Absolutepath $service_socket = '/run/hapcat.socket',
   $service_group = 'hapcat',
   Boolean $service_manage = true,
   $socket_service_name = 'hapcat.socket',
