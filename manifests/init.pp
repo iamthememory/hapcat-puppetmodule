@@ -26,6 +26,8 @@ class hapcat(
   $service_name = 'hapcat',
   $service_user = 'hapcat',
   Stdlib::Absolutepath $service_workingdirectory = '/var/lib/hapcat',
+  Boolean $use_uwsgi = true,
+  Boolean $use_http = true,
 
   Stdlib::Host $api_address = '0.0.0.0',
   Stdlib::Port $api_port = 8080,

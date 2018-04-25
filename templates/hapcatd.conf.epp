@@ -4,6 +4,8 @@
     String       $database_url,
     Boolean      $database_loadtestdata = false,
     Stdlib::Absolutepath $uwsgi_socket,
+    Boolean $use_uwsgi = true,
+    Boolean $use_http = false,
 | -%>
 # The example hapcatd configuration file.
 # Edit this to your needs.
@@ -82,10 +84,14 @@ threads = 2
 master = true
 
 # The HTTP socket to listen on.
+<% if $use_http { -%>
 http11-socket = <%= $api_address %>:<%= $api_port %>
+<% } -%>
 
 # The uWSGI socket to listen on.
-#uwsgi-socket = /var/run/hapcat.socket
+<% if $use_uwsgi { -%>
+uwsgi-socket = <%= $uwsgi_socket %>
+<% } -%>
 
 # How long to keep a stuck thread before killing it.
 harakiri = 15

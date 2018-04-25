@@ -25,7 +25,9 @@ class hapcat::config {
       'api_port'              => $hapcat::api_port,
       'database_url'          => $hapcat::database_url,
       'database_loadtestdata' => $hapcat::database_loadtestdata,
-      'uwsgi_socket'          => $hapcat::service_socket
+      'uwsgi_socket'          => $hapcat::service_socket,
+      'use_uwsgi'             => $hapcat::use_uwsgi,
+      'use_http'              => $hapcat::use_http,
     }),
   }
 
