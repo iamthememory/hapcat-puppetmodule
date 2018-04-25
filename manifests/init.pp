@@ -14,12 +14,15 @@ class hapcat(
   $package_pip_install_args = '',
   Stdlib::Absolutepath $package_config_file = '/etc/hapcatd.conf',
 
-  $service_command = '/usr/local/bin/hapcatd',
+  $service_command = '/usr/local/bin/uwsgi',
   Boolean $service_enable = true,
   Stdlib::Ensure::Service $service_ensure = 'running',
   Stdlib::Absolutepath $service_file = '/etc/systemd/system/hapcat.service',
+  Stdlib::Absolutepath $socket_service_file = '/etc/systemd/system/hapcat.socket',
+  Stdlib::Absolutepath $service_socket = '/run/hapcat.socket'
   $service_group = 'hapcat',
   Boolean $service_manage = true,
+  $socket_service_name = 'hapcat.socket',
   $service_name = 'hapcat',
   $service_user = 'hapcat',
   Stdlib::Absolutepath $service_workingdirectory = '/var/lib/hapcat',

@@ -3,6 +3,7 @@
     Stdlib::Port $api_port,
     String       $database_url,
     Boolean      $database_loadtestdata = false,
+    Stdlib::Absolutepath $uwsgi_socket,
 | -%>
 # The example hapcatd configuration file.
 # Edit this to your needs.
@@ -61,5 +62,35 @@ dburl = <%= $database_url %>
 
 # If true, initialize the database with basic test data on the first run.
 loadtestdata = <%= bool2str($database_loadtestdata) %>
+
+
+# This section sets the uWSGI configuration, if uWSGI is used.
+# See <https://uwsgi-docs.readthedocs.io/en/latest/index.html>
+[uwsgi]
+
+# The hapcat runnable object.
+# You shouldn't need to change this.
+module = hapcat:app
+
+# The number of worker processes.
+processes = 4
+
+# The number of threads per worker.
+threads = 2
+
+# Whether to have a master process.
+master = true
+
+# The HTTP socket to listen on.
+http11-socket = <%= $api_address %>:<%= $api_port %>
+
+# The uWSGI socket to listen on.
+#uwsgi-socket = /var/run/hapcat.socket
+
+# How long to keep a stuck thread before killing it.
+harakiri = 15
+
+# The number of threads for the offloading system.
+offload-threads = 2
 
 # vim: ft=dosini ts=2 sw=2 sts=2 expandtab

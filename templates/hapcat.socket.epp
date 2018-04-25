@@ -1,0 +1,16 @@
+<%- | 
+    String $service_user,
+    String $service_group,
+    Stdlib::Absolutepath $service_socket,
+| -%>
+[Unit]
+Description=Hapcat backend uWSGI socket
+
+[Socket]
+ListenStream=<%= $service_socket %>
+SocketUser=<%= $service_user %>
+SocketGroup=<%= $service_group %>
+SocketMode=0660
+
+[Install]
+WantedBy=sockets.target

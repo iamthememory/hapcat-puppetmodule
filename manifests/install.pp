@@ -23,6 +23,12 @@ class hapcat::install {
         virtualenv   => $hapcat::package_virtualenv,
       }
 
+      python::pip { 'uwsgi' :
+        ensure => 'present',
+        install_args => $hapcat::package_pip_install_args,
+        virtualenv   => $hapcat::package_virtualenv,
+      }
+
       case $::operatingsystem {
         'debian', 'ubuntu' : {
           $nologin = '/usr/sbin/nologin'

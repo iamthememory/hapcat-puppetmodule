@@ -1,22 +1,28 @@
 <%- | 
     String $service_user,
-    String $service_command,
+    String $uwsgi_command,
     String $service_group,
     String $service_workingdirectory,
     String $service_configfile,
 | -%>
 [Unit]
-Description=Hapcat backend
-After=basic.target network.target
+Description=Hapcat backend uWSGI listener
+After=basic.target syslog.target
 
 [Service]
-Type=simple
+Type=notify
 User=<%= $service_user %>
 Group=<%= $service_group %>
+ExecStart=<%= $uwsgi_command %> --ini '<%= $service_configfile %>'
 WorkingDirectory=<%= $service_workingdirectory %>
-ExecStart=<%= $service_command %> -c '<%= $service_configfile %>'
+RuntimeDirectory=hapcat
+Restart=always
+KillSignal=SIGQUIT
+NotifyAccess=all
 StandardOutput=syslog
-StandardError=syslog
+StandardError=inherit
+SyslogIdentifier=hapcat
+Environment="HAPCAT_FLASK_CONFIG=<%= $service_configfile %>"
 
 [Install]
 WantedBy=multi-user.target
